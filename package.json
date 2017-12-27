@@ -25,5 +25,9 @@
   "bugs": {
     "url": "https://github.com/fengxinming/express-async/issues"
   },
-  "homepage": "https://github.com/fengxinming/express-async#readme"
+  "homepage": "https://github.com/fengxinming/express-async#readme",
+  "dependencies": {
+    "array-flatten": "^2.1.1",
+    "http-errors": "^1.6.2"
+  }
 }
