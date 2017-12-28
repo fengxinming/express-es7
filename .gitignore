@@ -31,3 +31,6 @@ examples/middleware/node_modules
 
 # Debug log from npm
 npm-debug.log
+
+# Debug log from npm in examples
+examples/middleware/npm-debug.log

@@ -9,7 +9,7 @@ function convertError(err) {
 }
 
 function compose(middleware) {
-  return function(req, res, next) {
+  return function (req, res) {
     let index = -1;
     return dispatch(0);
 
@@ -20,13 +20,13 @@ function compose(middleware) {
       index = i;
       let fn = middleware[i];
       if (i === middleware.length) {
-        fn = next;
+        fn = undefined;
       }
       if (!fn) {
         return Promise.resolve();
       }
       try {
-        return Promise.resolve(fn(req, res, function next(err) {
+        return Promise.resolve(fn(req, res, function (err) {
           if (err) {
             return Promise.reject(err);
           } else {
@@ -42,10 +42,9 @@ function compose(middleware) {
 
 function createApplication() {
   const middleware = flatten(Array.from(arguments));
-  return function(req, res, next) {
-    return compose(req, res, middleware).then(() => {
-      next();
-    }).catch((err) => {
+  const fnMiddleware = compose(middleware);
+  return function (req, res, next) {
+    return fnMiddleware(req, res).then(next).catch((err) => {
       next(convertError(err));
     });
   };
