@@ -42,16 +42,11 @@ app.use(ac(async function middleware2(req, res, next) {
   await next();
 }, async function middleware3(req, res, next) {
   console.log((new Date()).toLocaleString(), 'middleware3');
-  try {
-    await next();
-  } catch (e) {
-    console.log('catch Exception below middleware3', e);
-    await next(e);
-  }
+  await next();
 }));
 
 // throw a exception
-app.use(ac(async function middleware1(req, res, next) {
+app.use(ac(async function middleware4(req, res, next) {
   await new Promise((resolve, reject) => {
     setImmediate(() => {
       console.log((new Date()).toLocaleString(), 'middleware4');
@@ -60,6 +55,15 @@ app.use(ac(async function middleware1(req, res, next) {
   });
   await next();
 }));
+
+app.use(ac(async function middleware5(req, res, next) {
+  await next(new Error('middleware5 exception'));
+}));
+
+app.use(ac(async function middleware6(req, res, next) {
+  throw new Error('middleware6 exception');
+}));
+
 
 app.use('/', index);
 app.use('/users', users);
