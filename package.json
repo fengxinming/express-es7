@@ -28,6 +28,15 @@
   "homepage": "https://github.com/fengxinming/express-async#readme",
   "dependencies": {
     "array-flatten": "^2.1.1",
-    "http-errors": "^1.6.2"
+    "express": "^4.16.2",
+    "http-errors": "^1.6.2",
+    "methods": "^1.1.2"
+  },
+  "devDependencies": {
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1"
   }
 }
