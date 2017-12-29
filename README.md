@@ -9,9 +9,9 @@
   -->
 </p>
 
-# express-async
+# express-es7
 
-> Note: `express-async` for express using ES2017 async functions
+> Note: `express-es7` for express using ES2017 async functions
 
 ---
 
@@ -33,10 +33,10 @@
 
 ## Installation
 
-express-async requires __node v7.6.0__ or higher for ES2015 and async function support.
+express-es7 requires __node v7.6.0__ or higher for ES2015 and async function support.
 
 ```
-$ npm install express-async
+$ npm install express-es7
 ```
 
 <br/>
@@ -48,7 +48,7 @@ use ES2017 async functions as middleware of express
 ```bash
 
 const express = require('express');
-const ea = require('express-async');
+const ea = require('express-es7');
 const app = express();
 
 // 添加异步方法
