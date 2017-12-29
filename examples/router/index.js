@@ -1,10 +1,10 @@
 'use strict';
 
 const express = require('express');
-
-const app = module.exports = express();
 const api1 = require('./controllers/api_v1');
 const api2 = require('./controllers/api_v2');
+
+const app = module.exports = express();
 
 // 添加普通路由
 app.use('/api/v1', api1);

@@ -25,6 +25,6 @@ proto.use = function (...args) {
   this.middleware.push(...middleware);
 };
 
-proto.middleware = function () {
+proto.callback = function () {
   return convert(this.middleware);
 };
