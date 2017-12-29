@@ -61,5 +61,6 @@ app.use(ea(async function (req, res, next) {
 <br/>
 
 ## Examples
-  - [Demo 1](examples/easy-middleware)
-  - [Demo 2](examples/complicated-middleware)
+  - [Demo for middleware](examples/easy-middleware)
+  - [Demo for complicated middleware](examples/complicated-middleware)
+  - [Demo for router](examples/router)
