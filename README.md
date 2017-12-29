@@ -48,18 +48,18 @@ use ES2017 async functions as middleware of express
 ```bash
 
 const express = require('express');
-const ea = require('express-es7');
+const ee = require('express-es7');
 const app = express();
 
 // 添加异步方法
-// app.use(ea(middleware[, ...middleware]));
-app.use(ea(async function (req, res, next) {
+// app.use(ee(middleware[, ...middleware]));
+app.use(ee(async(req, res, next) => {
   // 添加您的逻辑代码
   await next();
 }));
 
 // 添加路由
-const apiv2 = ea.Router();
+const apiv2 = ee.Router();
 apiv2.get('/', async(req, res) => {
   // 添加您的逻辑代码
 });
