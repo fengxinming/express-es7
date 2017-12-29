@@ -15,19 +15,19 @@
 
 ---
 
-## Features
-
-### Support
-  * Node >= 7.7.3
-  * Express >= 4.x
-
-<br/>
-
 ## Table of contents
 
   - [Installation](#installation)
   - [Usage](#usage)
   - [Examples](#examples)
+
+<br/>
+
+## Features
+
+### Support
+  * Node >= 7.7.3
+  * Express >= 4.x
 
 <br/>
 
@@ -57,6 +57,14 @@ app.use(ea(async function (req, res, next) {
   // 添加您的逻辑代码
   await next();
 }));
+
+// 添加路由
+const apiv2 = ea.Router();
+apiv2.get('/', async(req, res) => {
+  // 添加您的逻辑代码
+});
+
+app.use('/api/v2', apiv2.callback());
 
 ```
 

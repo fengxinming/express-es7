@@ -12,7 +12,7 @@ app.use('/api/v1', api1);
 // 添加异步路由
 app.use('/api/v2', api2);
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
   res.send('Hello form root route.');
 });
 

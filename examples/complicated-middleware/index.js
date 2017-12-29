@@ -24,7 +24,7 @@ ea.use((req, res, next) => {
 });
 
 // 中间件三，异步方法
-ea.use(async function (req, res, next) {
+ea.use(async(req, res, next) => {
   await new Promise((resolve, reject) => {
     req.user.message += 'middleware 3<br/>';
     resolve();
@@ -33,7 +33,7 @@ ea.use(async function (req, res, next) {
 });
 
 // 中间件四，列举三种种抛错给全局拦截函数
-ea.use(async function (req, res, next) {
+ea.use(async(req, res, next) => {
   switch (temp % 3) {
     case 0: // 第一种
 
