@@ -27,6 +27,7 @@ build/Release
 node_modules
 
 # Dependency directory in examples
+examples/node_modules
 examples/middleware/node_modules
 
 # Debug log from npm
