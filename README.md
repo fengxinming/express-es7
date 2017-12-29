@@ -62,6 +62,6 @@ app.use(ea(async function (req, res, next) {
 
 <br/>
 
-## Example
+## Examples
   - [Demo 1](examples/easy-middleware)
   - [Demo 2](examples/complicated-middleware)
