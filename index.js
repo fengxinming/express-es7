@@ -5,10 +5,10 @@ const convert = require('./lib/convert');
 const Router = require('./lib/router');
 
 const EA = module.exports = function(...fns) {
-  if (!(this instanceof EA)) {
-    return convert(...fns);
-  } else {
+  if (this instanceof EA) {
     this.middleware = [];
+  } else {
+    return convert(...fns);
   }
 };
 
