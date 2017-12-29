@@ -29,6 +29,8 @@
 
 ---
 
+<br/>
+
 ## Installation
 
 express-async requires __node v7.6.0__ or higher for ES2015 and async function support.
@@ -57,5 +59,9 @@ app.use(ea(async function (req, res, next) {
 }));
 
 ```
-[Demo 1](examples/easy-middleware)
-[Demo 2](examples/complicated-middleware)
+
+<br/>
+
+## Example
+  - [Demo 1](examples/easy-middleware)
+  - [Demo 2](examples/complicated-middleware)
