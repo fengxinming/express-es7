@@ -1,0 +1,22 @@
+{
+  "name": "examples",
+  "version": "1.0.0",
+  "description": "express async examples",
+  "main": "index.js",
+  "scripts": {
+    "router": "node ./router/index.js",
+    "em": "node ./easy-middleware/index.js",
+    "cm": "node ./complicated-middleware/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "async",
+    "examples"
+  ],
+  "author": "Jesse Feng",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
