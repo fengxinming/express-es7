@@ -34,3 +34,5 @@ npm-debug.log
 
 # Debug log from npm in examples
 examples/middleware/npm-debug.log
+
+.vscode
