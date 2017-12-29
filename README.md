@@ -13,7 +13,7 @@
 
 > Note: `express-async` for express using ES2017 async functions
 
-<br/>
+---
 
 ## Features
 
@@ -26,8 +26,6 @@
 ## Table of contents
 
   - [Usage](#Usage)
-
----
 
 <br/>
 
