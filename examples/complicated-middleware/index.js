@@ -8,7 +8,7 @@ const ea = new EA();
 
 let temp = 0;
 
-// 中间一, 普通中间件
+// 中间件一, 普通中间件
 app.use((req, res, next) => {
   req.user = {
     message: 'middleware 1<br/>'
@@ -16,14 +16,14 @@ app.use((req, res, next) => {
   next();
 });
 
-// 中间二，包装普通中间件
+// 中间件二，包装普通中间件
 ea.use((req, res, next) => {
   req.user.message += 'middleware 2<br/>';
   temp++;
   return next();
 });
 
-// 中间三，异步方法
+// 中间件三，异步方法
 ea.use(async function (req, res, next) {
   await new Promise((resolve, reject) => {
     req.user.message += 'middleware 3<br/>';
@@ -32,7 +32,7 @@ ea.use(async function (req, res, next) {
   await next();
 });
 
-// 列举三种种抛错给全局拦截函数
+// 中间件四，列举三种种抛错给全局拦截函数
 ea.use(async function (req, res, next) {
   switch (temp % 3) {
     case 0: // 第一种
@@ -58,7 +58,7 @@ ea.use(async function (req, res, next) {
 
 app.use(ea.callback());
 
-// 中间五，全局拦截处理
+// 中间件五，全局拦截处理
 app.use((err, req, res, next) => {
   const error = req.user.message + err.message;
   console.error(temp, temp % 3, err.message);
