@@ -25,9 +25,9 @@
 
 ## Table of contents
 
-  - [Installation](#Installation)
-  - [Usage](#Usage)
-  - [Examples](#Examples)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Examples](#examples)
 
 <br/>
 
