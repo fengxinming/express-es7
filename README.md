@@ -4,9 +4,7 @@
   </a>
 </p>
 <p align="center">
-  <!--
-  <a title="CII Best Practices" href="https://bestpractices.coreinfrastructure.org/projects/29"><img src="https://bestpractices.coreinfrastructure.org/projects/29/badge"></a>
-  -->
+  <a title="express-es7" href="https://www.npmjs.com/package/express-es7"><img src="https://img.shields.io/npm/dm/express-es7.png?style=flat-square"></a>
 </p>
 
 # express-es7
