@@ -38,7 +38,11 @@
 express-es7 requires __node v7.6.0__ or higher for ES2015 and async function support.
 
 ```
-$ npm install express-es7
+$ npm install express-es7 --save
+```
+or
+```
+$ cnpm install express-es7 --save
 ```
 
 <br/>
