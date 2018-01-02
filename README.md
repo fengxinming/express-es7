@@ -28,7 +28,7 @@
 ## Features
 
 ### Support
-  * Node >= 7.7.3
+  * Node >= 7.6.0
   * Express >= 4.x
 
 <br/>
