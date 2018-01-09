@@ -3,20 +3,22 @@
     <img alt="Express" src="https://imgsa.baidu.com/exp/w=480/sign=f7c149382d1f95caa6f593bef9167fc5/0824ab18972bd40755319fbb73899e510eb30985.jpg" width="400"/>
   </a>
 </p>
+
 <p align="center">
   <!--
   <a title="CII Best Practices" href="https://bestpractices.coreinfrastructure.org/projects/29"><img src="https://bestpractices.coreinfrastructure.org/projects/29/badge"></a>
   -->
 </p>
 
-# express-async
+# express-es7
 
-> Note: `express-async` for express using ES2017 async functions
+> Note: `express-es7` for express using ES2017 async functions
 
 ---
 
 ## Table of contents
 
+  - [Features](#features)
   - [Installation](#installation)
   - [Usage](#usage)
   - [Examples](#examples)
@@ -26,17 +28,21 @@
 ## Features
 
 ### Support
-  * Node >= 7.7.3
+  * Node >= 7.6.0
   * Express >= 4.x
 
 <br/>
 
 ## Installation
 
-express-async requires __node v7.6.0__ or higher for ES2015 and async function support.
+express-es7 requires __node v7.6.0__ or higher for ES2015 and async function support.
 
 ```
-$ npm install express-async
+$ npm install express-es7 --save
+```
+or
+```
+$ cnpm install express-es7 --save
 ```
 
 <br/>
@@ -48,18 +54,18 @@ use ES2017 async functions as middleware of express
 ```bash
 
 const express = require('express');
-const ea = require('express-async');
+const ee = require('express-es7');
 const app = express();
 
 // 添加异步方法
-// app.use(ea(middleware[, ...middleware]));
-app.use(ea(async function (req, res, next) {
+// app.use(ee(middleware[, ...middleware]));
+app.use(ee(async(req, res, next) => {
   // 添加您的逻辑代码
   await next();
 }));
 
 // 添加路由
-const apiv2 = ea.Router();
+const apiv2 = ee.Router();
 apiv2.get('/', async(req, res) => {
   // 添加您的逻辑代码
 });
