@@ -4,7 +4,12 @@
   ],
   "globals": {},
   "rules": {
-    "arrow-parens": [2, "as-needed"],
+    "arrow-parens": [
+      2,
+      "as-needed", {
+        "requireForBlockBody": true
+      }
+    ],
     "padded-blocks": ["error", {
       "classes": "always"
     }],
@@ -21,10 +26,20 @@
     "eqeqeq": ["error", "always"],
     "no-var": 2,
     "semi": [2, "always"],
-    "space-before-function-paren": [2, "never"],
+    "space-before-function-paren": ["error", {
+      "anonymous": "always",
+      "named": "never",
+      "asyncArrow": "always"
+    }],
     "yoda": 0,
     "arrow-spacing": 2,
     "dot-location": [2, "property"],
-    "prefer-arrow-callback": 2
+    "prefer-arrow-callback": 2,
+    "operator-linebreak": [2, "after", {
+      "overrides": {
+        "?": "ignore",
+        ":": "ignore"
+      }
+    }]
   }
 }
