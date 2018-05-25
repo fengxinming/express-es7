@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "router": "node ./router/index.js",
-    "em": "node ./easy-middleware/index.js",
-    "cm": "node ./complicated-middleware/index.js",
+    "base": "node ./base/index.js",
+    "m": "node ./middleware/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

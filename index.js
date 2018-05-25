@@ -1,30 +1,26 @@
 'use strict';
 
-const flatten = require('array-flatten');
-const convert = require('./lib/convert');
-const Router = require('./lib/router');
+const express = require('express');
+const wrap = require('./lib/wrap');
 
-const EA = module.exports = function(...fns) {
-  if (this instanceof EA) {
-    this.middleware = [];
-  } else {
-    return convert(...fns);
-  }
-};
+const useWrap = wrap.use;
 
-EA.Router = Router;
+function createApplication() {
+  const app = express();
+  app._use = app.use;
+  app.use = useWrap(app);
+  return app;
+}
 
-const proto = EA.prototype;
+exports = module.exports = createApplication;
 
-proto.use = function(...args) {
-  const fn = args[0];
-  if (typeof fn !== 'function') {
-    throw new TypeError('middleware must be a function!');
-  }
-  const middleware = flatten(args);
-  this.middleware.push(...middleware);
-};
+Object.assign(exports, express);
 
-proto.callback = function() {
-  return convert(this.middleware);
+const Router = express.Router;
+
+exports.Router = function (options) {
+  const router = Router(options);
+  router._use = router.use;
+  router.use = useWrap(router);
+  return router;
 };

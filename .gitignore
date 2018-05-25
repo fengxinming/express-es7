@@ -26,9 +26,6 @@ build/Release
 # https://docs.npmjs.com/cli/shrinkwrap#caveats
 node_modules
 
-# Dependency directory in examples
-examples/node_modules
-
 # Debug log from npm
 npm-debug.log
 

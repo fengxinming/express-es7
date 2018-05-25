@@ -1,7 +1,5 @@
 <p align="center">
-  <a href="http://expressjs.com/">
-    <img alt="Express" src="https://imgsa.baidu.com/exp/w=480/sign=f7c149382d1f95caa6f593bef9167fc5/0824ab18972bd40755319fbb73899e510eb30985.jpg" width="400"/>
-  </a>
+  [![Express Logo](https://i.cloudup.com/zfY6lL7eFa-3000x3000.png)](http://expressjs.com/)
 </p>
 
 <p align="center">
@@ -12,13 +10,14 @@
 
 # express-es7
 
-> Note: `express-es7` for express using ES2017 async functions
+> Note: develop web application like Koa2 with express
 
 ---
 
 ## Table of contents
 
   - [Features](#features)
+  - [Migrating](#migrating)
   - [Installation](#installation)
   - [Usage](#usage)
   - [Examples](#examples)
@@ -47,36 +46,55 @@ $ cnpm install express-es7 --save
 
 <br/>
 
+## Migrating
+
+### How to migrate `express` to `express-es7`
+
+```bash
+
+const express = require('express');
+const app = express();
+
+// ...
+
+// You need only to change "express" to "express-es7", that's all
+
+const express = require('express-es7');
+const app = express();
+
+```
+
+<br/>
+
 ## Usage
 
 use ES2017 async functions as middleware of express
 
 ```bash
 
-const express = require('express');
-const ee = require('express-es7');
+const express = require('express-es7');
 const app = express();
 
-// 添加异步方法
-// app.use(ee(middleware[, ...middleware]));
-app.use(ee(async(req, res, next) => {
-  // 添加您的逻辑代码
+// use async functions
+// app.use(middleware[, ...middleware]);
+app.use(async(req, res, next) => {
+  // todo your code
   await next();
-}));
-
-// 添加路由
-const apiv2 = ee.Router();
-apiv2.get('/', async(req, res) => {
-  // 添加您的逻辑代码
 });
 
-app.use('/api/v2', apiv2.callback());
+// use router
+const apiv2 = express.Router();
+apiv2.get('/', async(req, res) => {
+  // todo your code
+});
+
+app.use('/api/v2', apiv2);
 
 ```
 
 <br/>
 
 ## Examples
-  - [Demo for middleware](examples/easy-middleware)
-  - [Demo for complicated middleware](examples/complicated-middleware)
+  - [Demo for simple](examples/base)
+  - [Demo for middleware](examples/middleware)
   - [Demo for router](examples/router)
