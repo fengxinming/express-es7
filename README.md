@@ -1,4 +1,4 @@
-[![Express Logo](https://i.cloudup.com/zfY6lL7eFa-3000x3000.png)](http://expressjs.com/)
+[![Express Logo](https://www.educationalappstore.com/images/upload/mzl.blyuuakw.png)](http://expressjs.com/)
 
 <p align="center">
   <!--
