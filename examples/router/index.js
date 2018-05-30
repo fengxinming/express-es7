@@ -16,6 +16,11 @@ app.get('/', (req, res) => {
   res.send('Hello form root route.');
 });
 
+app.use((err, req, res, next) => {
+  const error = (req.user || {}).message + err.message;
+  res.send(`${error}<br/>catch a error.`);
+});
+
 if (!module.parent) {
   app.listen(3000);
   console.log('Express started on port 3000');
