@@ -1,6 +1,6 @@
 {
   "name": "express-es7",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "develop web application like Koa2 with express.",
   "main": "index.js",
   "directories": {

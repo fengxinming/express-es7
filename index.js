@@ -3,14 +3,17 @@
 const express = require('express');
 const methods = require('methods').concat('all');
 const wrap = require('./lib/wrap');
+const utils = require('./lib/utils');
 
-const useWrap = wrap.use;
-const methodWrap = wrap.method;
+const {
+  use,
+  method
+} = wrap;
 
 function createApplication() {
   const app = express();
   app._use = app.use;
-  app.use = useWrap(app);
+  app.use = use(app);
   return app;
 }
 
@@ -23,11 +26,13 @@ const Router = express.Router;
 exports.Router = function (options) {
   const router = Router(options);
   router._use = router.use;
-  router.use = useWrap(router);
-  methods.forEach((method) => {
-    const _method = `_${method}`;
-    router[_method] = router[method];
-    router[method] = methodWrap(router, _method);
+  router.use = use(router);
+  methods.forEach((fn) => {
+    const _fn = `_${fn}`;
+    router[_fn] = router[fn];
+    router[fn] = method(router, _fn);
   });
   return router;
 };
+
+exports.utils = utils;
