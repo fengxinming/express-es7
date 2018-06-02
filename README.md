@@ -83,6 +83,15 @@ express.utils.compose([a, b, c, ...]);
 // Or
 express.utils.compose([[a, b], [c, d], ...]);
 
+// =========== For express ===========
+const express = require('express');
+const { convert, compose } = require('express-es7').utils;
+const app = express();
+
+app.use(convert(async (req, res, next) => {}));
+
+app.use(compose(a, b, c, ...));
+
 ```
 
 ---
