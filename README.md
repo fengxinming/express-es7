@@ -17,7 +17,7 @@
   - [Features](#features)
   - [Migrating](#migrating)
   - [Installation](#installation)
-  - [Extra API](#Extra API)
+  - [Extra API](#extra-api)
   - [Usage](#usage)
   - [Examples](#examples)
 
