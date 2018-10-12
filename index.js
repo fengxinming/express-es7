@@ -17,13 +17,13 @@ function createApplication() {
   return app;
 }
 
-exports = module.exports = createApplication;
+module.exports = createApplication;
 
-Object.assign(exports, express);
+Object.assign(createApplication, express);
 
 const Router = express.Router;
 
-exports.Router = function (options) {
+createApplication.Router = function (options) {
   const router = Router(options);
   router._use = router.use;
   router.use = use(router);
@@ -35,4 +35,4 @@ exports.Router = function (options) {
   return router;
 };
 
-exports.utils = utils;
+createApplication.utils = utils;
