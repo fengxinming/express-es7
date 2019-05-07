@@ -1,4 +1,4 @@
-[![Express Logo](https://i.cloudup.com/zfY6lL7eFa-3000x3000.png)](http://expressjs.com/)
+[![Express Logo](https://www.educationalappstore.com/images/upload/mzl.blyuuakw.png)](http://expressjs.com/)
 
 <p align="center">
   <!--
@@ -17,10 +17,11 @@
   - [Features](#features)
   - [Migrating](#migrating)
   - [Installation](#installation)
+  - [Extra API](#extra-api)
   - [Usage](#usage)
   - [Examples](#examples)
 
-<br/>
+---
 
 ## Features
 
@@ -28,7 +29,7 @@
   * Node >= 7.6.0
   * Express >= 4.x
 
-<br/>
+---
 
 ## Installation
 
@@ -42,7 +43,7 @@ or
 $ cnpm install express-es7 --save
 ```
 
-<br/>
+---
 
 ## Migrating
 
@@ -55,14 +56,45 @@ const app = express();
 
 // ...
 
-// You need only to change "express" to "express-es7", that's all
+// You need only to change "express" to "express-es7", that is all
 
 const express = require('express-es7');
 const app = express();
 
 ```
 
-<br/>
+---
+
+## Extra API
+
+```bash
+
+const express = require('express-es7');
+
+// Convert the given async function and return function.
+express.utils.convert(async (req, res, next) => {});
+// Or
+express.utils.convert(async (err, req, res, next) => {});
+
+// Compose the given async functions and return functions.
+express.utils.compose(a, b, c, ...);
+// Or
+express.utils.compose([a, b, c, ...]);
+// Or
+express.utils.compose([[a, b], [c, d], ...]);
+
+// =========== For express ===========
+const express = require('express');
+const { convert, compose } = require('express-es7').utils;
+const app = express();
+
+app.use(convert(async (req, res, next) => {}));
+
+app.use(compose(a, b, c, ...));
+
+```
+
+---
 
 ## Usage
 
@@ -90,7 +122,7 @@ app.use('/api/v2', apiv2);
 
 ```
 
-<br/>
+---
 
 ## Examples
   - [Demo for simple](examples/base)

@@ -1,7 +1,7 @@
 {
   "name": "express-es7",
-  "version": "2.0.0",
-  "description": "Compose the given async middleware and return middleware for express.",
+  "version": "2.0.3",
+  "description": "develop web application using async function with express.",
   "main": "index.js",
   "directories": {
     "example": "examples"
@@ -14,7 +14,10 @@
     "url": "git+https://github.com/fengxinming/express-es7.git"
   },
   "keywords": [
+    "node",
+    "nodejs",
     "express",
+    "express-es7",
     "middleware",
     "async",
     "await",
@@ -28,7 +31,8 @@
   "homepage": "https://github.com/fengxinming/express-es7#readme",
   "dependencies": {
     "array-flatten": "^2.1.1",
-    "express": "^4.16.2",
+    "celia": "^1.0.2",
+    "express": "^4.16.3",
     "http-errors": "^1.6.2",
     "methods": "^1.1.2"
   },
