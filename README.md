@@ -69,28 +69,25 @@ const app = express();
 
 ```bash
 
-const express = require('express-es7');
+// catch unhandledRejection Error
+// when using `express` not `express-es7`
 
-// Convert the given async function and return function.
-express.utils.convert(async (req, res, next) => {});
-// Or
-express.utils.convert(async (err, req, res, next) => {});
-
-// Compose the given async functions and return functions.
-express.utils.compose(a, b, c, ...);
-// Or
-express.utils.compose([a, b, c, ...]);
-// Or
-express.utils.compose([[a, b], [c, d], ...]);
-
-// =========== For express ===========
 const express = require('express');
-const { convert, compose } = require('express-es7').utils;
+const { callbackify, compose } = require('express-es7').utils;
 const app = express();
 
-app.use(convert(async (req, res, next) => {}));
+// convert an async function to a function 
+// and catch unhandledRejection Error
+app.use(callbackify(async (req, res, next) => {
 
-app.use(compose(a, b, c, ...));
+}));
+
+app.use(compose(fn1, fn2, fn3, ...));
+
+// catch error
+app.use((err, req, res, next) => {
+  // ...
+});
 
 ```
 
@@ -109,7 +106,7 @@ const app = express();
 // app.use(middleware[, ...middleware]);
 app.use(async(req, res, next) => {
   // todo your code
-  await next();
+  next();
 });
 
 // use router
@@ -119,6 +116,11 @@ apiv2.get('/', async(req, res) => {
 });
 
 app.use('/api/v2', apiv2);
+
+// catch error
+app.use((err, req, res, next) => {
+  // ...
+});
 
 ```
 
