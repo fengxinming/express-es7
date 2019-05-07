@@ -16,7 +16,7 @@ module.exports = createApplication;
 
 Object.assign(createApplication, express);
 
-const Router = express.Router;
+const { Router } = express;
 
 createApplication.Router = function (options) {
   const router = Router(options);
