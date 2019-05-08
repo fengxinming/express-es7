@@ -16,14 +16,15 @@
     "url": "git+https://github.com/fengxinming/express-es7.git"
   },
   "keywords": [
-    "node",
-    "nodejs",
     "express",
     "express-es7",
-    "middleware",
     "async",
     "await",
-    "es7"
+    "connect",
+    "middleware",
+    "es7",
+    "node",
+    "nodejs"
   ],
   "author": "Jesse Feng",
   "license": "MIT",
