@@ -1,33 +1,26 @@
 'use strict';
 
-const express = require('../../../index');
+const { sleep } = require('celia');
+const express = require('../../index');
 
 const apiv2 = express.Router();
 
 apiv2.get('/', async (req, res) => {
-  req.user = {
-    message: `Start${req.url}<br/>`
-  };
-  await new Promise((resolve) => {
-    setTimeout(() => {
-      req.user.message += 'APIv2 make an async request<br/>';
-      resolve();
-    }, 2000);
-  });
-  req.user.message += 'APIv2 an async request has been finished<br/>';
-  req.user.message += 'Hello from APIv2 root route.';
-  res.send(req.user.message);
+  let message = `Start${req.url}<br/>`;
+  message += 'APIv2 make an async request<br/>';
+  await sleep(2000);
+  message += 'APIv2 an async request has been finished<br/>';
+  message += 'Hello from APIv2 root route.';
+  res.send(message);
 });
 
 let temp = 0;
 apiv2.get('/users', (req, res, next) => {
-  req.user = {
-    message: `Start APIv2 callback1 ${req.url}<br/>`
-  };
+  req.message = `Start APIv2 callback1 ${req.url}<br/>`;
   temp = Math.round(Math.random() * 3);
   next();
 }, async (req, res, next) => {
-  req.user.message += temp + ' APIv2 callback2<br/>';
+  req.message += temp + ' APIv2 callback2<br/>';
   switch (temp % 4) {
     case 0: // 第一种
 
@@ -45,12 +38,13 @@ apiv2.get('/users', (req, res, next) => {
     case 2: // 第三种
 
       // 调用next方法时传入异常也能被后面的中间件捕获
-      await next(new Error('throw the third error'));
+      next(new Error('throw the third error'));
+      return;
   }
-  await next();
+  next();
 }, async (req, res, next) => {
-  req.user.message += 'List of APIv2 users.';
-  res.send(req.user.message);
+  req.message += 'List of APIv2 users.';
+  res.send(req.message);
 });
 
 module.exports = apiv2;
